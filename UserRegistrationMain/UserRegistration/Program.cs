@@ -8,7 +8,7 @@ namespace UserRegistration
         static string NAME_PATTERN = "^[A-Z][a-z]{2,}$";
         static string EMAIL_PATTERN= "^([a-z0-9.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$";
         static string MOBILE_PATTERN = "^[0-9]{2} [6-9]{1}[0-9]{9}$";
-        static string PASSWORD_PATTERN = "^[a-zA-Z]{8,}$";
+        static string PASSWORD_PATTERN = "^.*(?=.*[a-z])*(?=.*[A-Z])(.{8,})$";
 
 
         Regex regexName = new Regex(NAME_PATTERN);
@@ -91,7 +91,7 @@ namespace UserRegistration
                 string mobileNo = Console.ReadLine();
                 pg.mobileNoValidate(mobileNo);
 
-                Console.WriteLine("Enter your password: ");
+                Console.WriteLine("Enter your password : ");
                 string password = Console.ReadLine();
                 pg.passwordValidate(password);
         }
