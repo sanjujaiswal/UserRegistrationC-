@@ -7,9 +7,12 @@ namespace UserRegistration
     {
         static string NAME_PATTERN = "^[A-Z][a-z]{2,}$";
         static string EMAIL_PATTERN= "^([a-z0-9.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$";
+        static string MOBILE_PATTERN = "^[0-9]{2} [6-9]{1}[0-9]{9}$";
 
         Regex regexName = new Regex(NAME_PATTERN);
-        Regex regEmail = new Regex(EMAIL_PATTERN);
+        Regex regexEmail = new Regex(EMAIL_PATTERN);
+        Regex regexMobile = new Regex(MOBILE_PATTERN);
+
 
         public void firstNameValidate(string firstName)
         {
@@ -35,7 +38,7 @@ namespace UserRegistration
         }
         public void emailCheck(string emailPattern)
         {
-            if (regEmail.IsMatch(emailPattern))
+            if (regexEmail.IsMatch(emailPattern))
             {
                 Console.WriteLine("Valid Pattern");
             }
@@ -44,7 +47,18 @@ namespace UserRegistration
                 Console.WriteLine("Invalid Pattern");
             }
         }
-            static void Main(string[] args)
+        public void mobileCheck(string pattern)
+        {
+            if (regexMobile.IsMatch(pattern))
+            {
+                Console.WriteLine("Valid Pattern");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Pattern");
+            }
+        }
+        static void Main(string[] args)
             {
                 Console.WriteLine("Welcome to the User registration Program!!!");
                 Program pg = new Program();
@@ -59,6 +73,10 @@ namespace UserRegistration
                 Console.WriteLine("Enter your Email id : ");
                 string emailID = Console.ReadLine();
                 pg.emailCheck(emailID);
-            }
+
+                Console.WriteLine("Enter your mobile number : ");
+                string mobileNo = Console.ReadLine();
+                pg.mobileCheck(mobileNo);
+        }
         }
     }
