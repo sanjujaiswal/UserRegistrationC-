@@ -17,8 +17,6 @@ namespace UserRegistration
         static string MOBILE_PATTERN = "^[0-9]{2} [6-9]{1}[0-9]{9}$";
         static string PASSWORD_PATTERN = "^.*(?=.*[a-z0-9])*(?=.*[A-Z])*(?=.*[!@#$%^&*])(.{8,})$";
 
-
-
         Regex regexName = new Regex(NAME_PATTERN);
         Regex regexEmail = new Regex(EMAIL_PATTERN);
         Regex regexMobile = new Regex(MOBILE_PATTERN);
@@ -79,6 +77,7 @@ namespace UserRegistration
                 Console.WriteLine("Invalid Password");
             }
         }
+        //Main method
         static void Main(string[] args)
             {
                 Console.WriteLine("Welcome to the User registration Program!!!");
