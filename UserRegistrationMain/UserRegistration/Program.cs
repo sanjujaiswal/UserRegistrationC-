@@ -8,54 +8,67 @@ namespace UserRegistration
         static string NAME_PATTERN = "^[A-Z][a-z]{2,}$";
         static string EMAIL_PATTERN= "^([a-z0-9.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$";
         static string MOBILE_PATTERN = "^[0-9]{2} [6-9]{1}[0-9]{9}$";
+        static string PASSWORD_PATTERN = "^[a-zA-Z]{8,}$";
+
 
         Regex regexName = new Regex(NAME_PATTERN);
         Regex regexEmail = new Regex(EMAIL_PATTERN);
         Regex regexMobile = new Regex(MOBILE_PATTERN);
-
+        Regex regexPassword = new Regex(PASSWORD_PATTERN);
 
         public void firstNameValidate(string firstName)
         {
             if (regexName.IsMatch(firstName))
             {
-                Console.WriteLine("Valid Name");
+                Console.WriteLine("Valid First Name");
             }
             else
             {
-                Console.WriteLine("Invalid Name");
+                Console.WriteLine("Invalid First Name");
             }
         }
         public void lastNameValidate(string lastName)
         {
             if (regexName.IsMatch(lastName))
             {
-                Console.WriteLine("Valid Pattern");
+                Console.WriteLine("Valid Last Name");
             }
             else
             {
-                Console.WriteLine("Invalid Pattern");
+                Console.WriteLine("Invalid Last Name");
             }
         }
-        public void emailCheck(string emailPattern)
+        public void emailValidate(string emailPattern)
         {
             if (regexEmail.IsMatch(emailPattern))
             {
-                Console.WriteLine("Valid Pattern");
+                Console.WriteLine("Valid Email id");
             }
             else
             {
-                Console.WriteLine("Invalid Pattern");
+                Console.WriteLine("Invalid Email id");
             }
         }
-        public void mobileCheck(string pattern)
+        public void mobileNoValidate(string pattern)
         {
             if (regexMobile.IsMatch(pattern))
             {
-                Console.WriteLine("Valid Pattern");
+                Console.WriteLine("Valid Mobile number");
             }
             else
             {
-                Console.WriteLine("Invalid Pattern");
+                Console.WriteLine("Invalid Mobile Number");
+            }
+        }
+        public void passwordValidate(string pattern)
+        {
+            if (regexPassword.IsMatch(pattern))
+            {
+                Console.WriteLine("Valid Password");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password");
             }
         }
         static void Main(string[] args)
@@ -72,11 +85,15 @@ namespace UserRegistration
 
                 Console.WriteLine("Enter your Email id : ");
                 string emailID = Console.ReadLine();
-                pg.emailCheck(emailID);
+                pg.emailValidate(emailID);
 
                 Console.WriteLine("Enter your mobile number : ");
                 string mobileNo = Console.ReadLine();
-                pg.mobileCheck(mobileNo);
+                pg.mobileNoValidate(mobileNo);
+
+                Console.WriteLine("Enter your password: ");
+                string password = Console.ReadLine();
+                pg.passwordValidate(password);
         }
         }
     }
