@@ -48,7 +48,6 @@ namespace UserRegistration
             {
                 Console.WriteLine("Welcome to the User registration Program!!!");
                 Program pg = new Program();
-
                 Console.WriteLine("Enter Your First Name : ");
                 string firstName = Console.ReadLine();
                 pg.firstNameValidate(firstName);
